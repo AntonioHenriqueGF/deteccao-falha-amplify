@@ -1,1 +1,1 @@
-# falha-luz-cliente
+# AMPLIFY para Notificação de Falhas
