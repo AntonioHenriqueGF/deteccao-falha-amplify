@@ -4,7 +4,6 @@ import TelegramBot from 'node-telegram-bot-api';
 const client = mqtt.connect('mqtt://200.143.224.99:1883');
 const BROKER_TOPIC = 'broker_antonio';
 const BOT_TOKEN = '7324767066:AAETbzsfhQOq_xirYmv1ow8KUUUqqodB6rU';
-// const CHAT_ID = '1155035400';
 const CHAT_ID = '5453042144';
 
 try {
@@ -28,8 +27,8 @@ try {
   );
   
   client.on('message', (topic, message) => {
+    if (topic !== BROKER_TOPIC) return;
     // message is Buffer
-    // const msg = message.toString();
     const msg = Buffer.from(message.toString(), 'base64').toString('utf-8');
     if (msg == 'QUEI') {
       bot.sendMessage(CHAT_ID, `================================
